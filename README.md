@@ -136,7 +136,18 @@ Tensorix offers more free credits and works well for this project.
 
 ## Run the Agent
 
-### Option 1: Terminal (CLI)
+### Option 1: Web Browser (Recommended)
+
+The easiest way to use your agent - opens in your browser with a nice chat interface.
+
+```bash
+adk web agents
+```
+Then open http://127.0.0.1:8000 in your browser.
+
+### Option 2: Terminal (CLI) - Alternative
+
+If you prefer the command line:
 
 **For Tensorix (Recommended):**
 ```bash
@@ -149,13 +160,6 @@ adk run agents/math_tutor
 ```
 
 Then type your math questions. Type `exit` to quit.
-
-### Option 2: Web Browser
-
-```bash
-adk web agents
-```
-Then open http://127.0.0.1:8000 in your browser.
 
 ---
 
