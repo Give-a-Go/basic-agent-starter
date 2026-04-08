@@ -92,12 +92,19 @@ Without a venv, you might have conflicts between different projects. With a venv
 
 5. **Install dependencies:**
 
+   **Quick install (recommended for Tensorix with greeting):**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   **Or manually:**
+
    **If using Google AI Studio only:**
    ```bash
    pip install google-adk
    ```
 
-   **If using Tensorix (or both):**
+   **If using Tensorix:**
    ```bash
    pip install "google-adk[extensions]"
    ```
@@ -105,6 +112,8 @@ Without a venv, you might have conflicts between different projects. With a venv
    > If you get a permission error, add `--break-system-packages`: `pip install --break-system-packages "google-adk[extensions]"`
 
    > Make sure your virtual environment is activated (you should see `(venv)` in your terminal).
+
+   > **Note:** The greeting feature (agent says hi first) requires the `[extensions]` version. If you skip it, you can still use the agent but won't get the automatic greeting.
 
 ---
 

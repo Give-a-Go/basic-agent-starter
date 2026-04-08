@@ -1,0 +1,11 @@
+# Requirements for Math Tutor Agent
+
+# For Google AI Studio (basic - no greeting):
+# pip install google-adk
+
+# For Tensorix (with greeting feature):
+pip install "google-adk[extensions]"
+
+# For development/testing:
+# pip install google-adk
+# pip install litellm
