@@ -64,15 +64,19 @@ Without a venv, you might have conflicts between different projects. With a venv
 1. **Clone the project:**
    ```bash
    git clone https://github.com/Give-a-Go/basic-agent-starter.git
+   ```
+
+2. **Go into the project folder:**
+   ```bash
    cd basic-agent-starter
    ```
 
-2. **Create a virtual environment:**
+3. **Create a virtual environment:**
    ```bash
    python3 -m venv venv
    ```
 
-3. **Activate the virtual environment:**
+4. **Activate the virtual environment:**
 
    **macOS/Linux:**
    ```bash
@@ -86,7 +90,7 @@ Without a venv, you might have conflicts between different projects. With a venv
 
    You should see `(venv)` appear at the start of your terminal line.
 
-4. **Install dependencies:**
+5. **Install dependencies:**
    ```bash
    pip install google-adk litellm
    ```
