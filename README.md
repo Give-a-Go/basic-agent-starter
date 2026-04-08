@@ -91,6 +91,13 @@ Without a venv, you might have conflicts between different projects. With a venv
    You should see `(venv)` appear at the start of your terminal line.
 
 5. **Install dependencies:**
+
+   **If using Google AI Studio only:**
+   ```bash
+   pip install google-adk
+   ```
+
+   **If using Tensorix (or both):**
    ```bash
    pip install google-adk litellm
    ```
@@ -235,6 +242,10 @@ root_agent = Agent(
 **"Command not found: adk"**
 - Make sure you activated the venv: `source venv/bin/activate`
 - Make sure you installed the packages: `pip install google-adk`
+
+**"Fail to load 'tensorix_math_tutor.agent' module. LiteLLM support requires..."**
+- You need to install litellm separately:
+- Run: `pip install litellm`
 
 **"RESOURCE_EXHAUSTED" or "You exceeded your current quota"**
 - You've hit the free tier limit on Google AI Studio
