@@ -2,7 +2,7 @@
 
 import os
 from google.adk.agents import Agent
-from google.adk.callbacks import CallbackContext
+from google.adk.agents.callback_context import CallbackContext
 from google.genai import types
 from typing import Optional
 

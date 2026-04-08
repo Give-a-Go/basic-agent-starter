@@ -94,15 +94,15 @@ Without a venv, you might have conflicts between different projects. With a venv
 
    **Quick install:**
    ```bash
-   pip install -r requirements.txt
+   pip33 install -r requirements.txt
    ```
 
    **Note:** For the greeting feature with Tensorix, run this instead:
    ```bash
-   pip install "google-adk[extensions]"
+   pip33 install "google-adk[extensions]"
    ```
 
-   > If you get a permission error, add `--break-system-packages`: `pip install --break-system-packages "google-adk[extensions]"`
+   > If you get a permission error, add `--break-system-packages`: `pip3 install --break-system-packages "google-adk[extensions]"`
 
    > Make sure your virtual environment is activated (you should see `(venv)` in your terminal).
 
@@ -247,14 +247,14 @@ root_agent = Agent(
 
 **"Command not found: adk"**
 - Make sure you activated the venv: `source venv/bin/activate`
-- Make sure you installed the packages: `pip install google-adk`
+- Make sure you installed the packages: `pip3 install google-adk`
 
 **"Fail to load 'tensorix_math_tutor.agent' module. LiteLLM support requires..."**
 - Install with extensions (note the quotes around the brackets):
   ```bash
-  pip install "google-adk[extensions]"
+  pip3 install "google-adk[extensions]"
   ```
-- If you get a permission error, use: `pip install --break-system-packages "google-adk[extensions]"`
+- If you get a permission error, use: `pip3 install --break-system-packages "google-adk[extensions]"`
 - Make sure you're in your virtual environment (you should see `(venv)` in your terminal)
 
 **"cannot import name 'LiteLLM' from 'google.adk.models'"**
@@ -271,14 +271,14 @@ root_agent = Agent(
 - This is a version compatibility issue
 - **Solution:** Upgrade aiohttp:
   ```bash
-  pip install --upgrade aiohttp
+  pip3 install --upgrade aiohttp
   ```
 
 **"module 'aiohttp' has no attribute 'ClientConnectorError'"**
 - Same compatibility issue
 - **Solution:** Upgrade packages:
   ```bash
-  pip install --upgrade google-adk aiohttp
+  pip3 install --upgrade google-adk aiohttp
   ```
 
 ---
