@@ -112,11 +112,25 @@ Without a venv, you might have conflicts between different projects. With a venv
 
 You need an API key to use an AI model.
 
-> **Important:** Google AI Studio has limited free quota. If you get LiteLLM import errors, use **Google AI Studio** instead - it's simpler and works out of the box!
+> **Important:** Both options work! Tensorix has more free credits. If you have issues with one, try the other.
 
-### Option A: Google AI Studio (Recommended - Simpler Setup)
+### Option A: Tensorix (More Free Credits)
 
-Google AI Studio works out of the box with google-adk - no extra installation needed!
+Tensorix offers more free credits and works well for this project.
+
+1. Go to [tensorix.ai](https://tensorix.ai) and sign up
+2. Get your API key from the dashboard
+3. Set it as an environment variable:
+   ```bash
+   export TENSORIX_API_KEY="your-key-here"
+   ```
+
+4. **Run with Tensorix:**
+   ```bash
+   adk run agents/tensorix_math_tutor
+   ```
+
+### Option B: Google AI Studio
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Click "Create API Key"
@@ -129,22 +143,6 @@ Google AI Studio works out of the box with google-adk - no extra installation ne
 5. **Run with Google AI Studio:**
    ```bash
    adk run agents/math_tutor
-   ```
-
-### Option B: Tensorix (Alternative - May Have Compatibility Issues)
-
-Tensorix offers more free credits but requires extra setup and may have version compatibility issues.
-
-1. Go to [tensorix.ai](https://tensorix.ai) and sign up
-2. Get your API key from the dashboard
-3. Set it as an environment variable:
-   ```bash
-   export TENSORIX_API_KEY="your-key-here"
-   ```
-
-4. **Run with Tensorix:**
-   ```bash
-   adk run agents/tensorix_math_tutor
    ```
 
 > **Note:** Save your API key! You'll need to set it every time you open a new terminal. To make it permanent, add it to your shell profile (~/.zshrc or ~/.bashrc).
@@ -166,14 +164,14 @@ Then open http://127.0.0.1:8000 in your browser.
 
 If you prefer the command line:
 
-**For Google AI Studio (Recommended):**
-```bash
-adk run agents/math_tutor
-```
-
-**For Tensorix (Alternative):**
+**For Tensorix (More Free Credits):**
 ```bash
 adk run agents/tensorix_math_tutor
+```
+
+**For Google AI Studio:**
+```bash
+adk run agents/math_tutor
 ```
 
 Then type your math questions. Type `exit` to quit.
@@ -197,19 +195,7 @@ basic-agent-starter/
 └── README.md
 ```
 
-### The Agent Code (Google AI Studio Version - Recommended)
-
-```python
-from google.adk.agents import Agent
-
-root_agent = Agent(
-    name="math_tutor",
-    model="gemini-2.0-flash",
-    instruction="You are a friendly math tutor. Keep answers short and simple."
-)
-```
-
-### The Agent Code (Tensorix Version - Alternative)
+### The Agent Code (Tensorix Version)
 
 ```python
 import os
@@ -225,6 +211,18 @@ llm = LiteLlm(
 root_agent = Agent(
     name="math_tutor",
     model=llm,
+    instruction="You are a friendly math tutor. Keep answers short and simple."
+)
+```
+
+### The Agent Code (Google AI Studio Version)
+
+```python
+from google.adk.agents import Agent
+
+root_agent = Agent(
+    name="math_tutor",
+    model="gemini-2.0-flash",
     instruction="You are a friendly math tutor. Keep answers short and simple."
 )
 ```
