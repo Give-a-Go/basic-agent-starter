@@ -95,9 +95,27 @@ Without a venv, you might have conflicts between different projects. With a venv
 
 ## Choose Your AI Provider
 
-You need an API key to use an AI model. Choose one:
+You need an API key to use an AI model.
 
-### Option A: Google AI Studio (Recommended for Beginners)
+> **Important:** Google AI Studio has limited free quota. If you get quota errors, use **Tensorix** instead - it has more generous free credits.
+
+### Option A: Tensorix (Recommended - More Free Credits)
+
+Tensorix offers more free credits and works well for this project.
+
+1. Go to [tensorix.ai](https://tensorix.ai) and sign up
+2. Get your API key from the dashboard
+3. Set it as an environment variable:
+   ```bash
+   export TENSORIX_API_KEY="your-key-here"
+   ```
+
+4. **Run with Tensorix:**
+   ```bash
+   adk run agents/tensorix_math_tutor
+   ```
+
+### Option B: Google AI Studio (May Have Limited Free Quota)
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Click "Create API Key"
@@ -107,13 +125,9 @@ You need an API key to use an AI model. Choose one:
    export GOOGLE_API_KEY="your-key-here"
    ```
 
-### Option B: Tensorix (Alternative)
-
-1. Go to [tensorix.ai](https://tensorix.ai) and sign up
-2. Get your API key from the dashboard
-3. Set it as an environment variable:
+5. **Run with Google AI Studio:**
    ```bash
-   export TENSORIX_API_KEY="your-key-here"
+   adk run agents/math_tutor
    ```
 
 > **Note:** Save your API key! You'll need to set it every time you open a new terminal. To make it permanent, add it to your shell profile (~/.zshrc or ~/.bashrc).
@@ -124,14 +138,14 @@ You need an API key to use an AI model. Choose one:
 
 ### Option 1: Terminal (CLI)
 
+**For Tensorix (Recommended):**
+```bash
+adk run agents/tensorix_math_tutor
+```
+
 **For Google AI Studio:**
 ```bash
 adk run agents/math_tutor
-```
-
-**For Tensorix:**
-```bash
-adk run agents/tensorix_math_tutor
 ```
 
 Then type your math questions. Type `exit` to quit.
@@ -162,19 +176,37 @@ basic-agent-starter/
 └── README.md
 ```
 
-### The Agent Code (Simple Version)
+### The Agent Code (Tensorix Version - Recommended)
+
+```python
+import os
+from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
+
+llm = LiteLlm(
+    model="openai/minimax/minimax-m2",
+    api_key=os.environ.get("TENSORIX_API_KEY"),
+    base_url="https://api.tensorix.ai/v1"
+)
+
+root_agent = Agent(
+    name="math_tutor",
+    model=llm,
+    instruction="You are a friendly math tutor. Keep answers short and simple."
+)
+```
+
+### The Agent Code (Google AI Studio Version)
 
 ```python
 from google.adk.agents import Agent
 
 root_agent = Agent(
-    name="math_tutor",           # Your agent's name
-    model="gemini-2.0-flash",    # The AI model to use
+    name="math_tutor",
+    model="gemini-2.0-flash",
     instruction="You are a friendly math tutor. Keep answers short and simple."
 )
 ```
-
-That's it! Just 5 lines to create an agent.
 
 ---
 
@@ -190,11 +222,30 @@ That's it! Just 5 lines to create an agent.
 ## Troubleshooting
 
 **"No API key found"**
-- Make sure you set the environment variable: `export GOOGLE_API_KEY="your-key"`
+- Make sure you set the environment variable: `export GOOGLE_API_KEY="your-key"` or `export TENSORIX_API_KEY="your-key"`
 
 **"Command not found: adk"**
 - Make sure you activated the venv: `source venv/bin/activate`
 - Make sure you installed the packages: `pip install google-adk`
+
+**"RESOURCE_EXHAUSTED" or "You exceeded your current quota"**
+- You've hit the free tier limit on Google AI Studio
+- **Solution:** Switch to Tensorix instead (more free credits)
+- Run: `adk run agents/tensorix_math_tutor` (after setting TENSORIX_API_KEY)
+
+**"AttributeError: module aiohttp has no attribute ClientConnectorDNSError"**
+- This is a version compatibility issue
+- **Solution:** Upgrade aiohttp:
+  ```bash
+  pip install --upgrade aiohttp
+  ```
+
+**"module 'aiohttp' has no attribute 'ClientConnectorError'"**
+- Same compatibility issue
+- **Solution:** Upgrade packages:
+  ```bash
+  pip install --upgrade google-adk aiohttp
+  ```
 
 ---
 
