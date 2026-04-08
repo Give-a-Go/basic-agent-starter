@@ -92,19 +92,12 @@ Without a venv, you might have conflicts between different projects. With a venv
 
 5. **Install dependencies:**
 
-   **Quick install (recommended for Tensorix with greeting):**
+   **Quick install:**
    ```bash
    pip install -r requirements.txt
    ```
 
-   **Or manually:**
-
-   **If using Google AI Studio only:**
-   ```bash
-   pip install google-adk
-   ```
-
-   **If using Tensorix:**
+   **Note:** For the greeting feature with Tensorix, run this instead:
    ```bash
    pip install "google-adk[extensions]"
    ```
