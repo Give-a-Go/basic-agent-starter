@@ -102,6 +102,10 @@ Without a venv, you might have conflicts between different projects. With a venv
    pip install "google-adk[extensions]"
    ```
 
+   > If you get a permission error, add `--break-system-packages`: `pip install --break-system-packages "google-adk[extensions]"`
+
+   > Make sure your virtual environment is activated (you should see `(venv)` in your terminal).
+
 ---
 
 ## Choose Your AI Provider
@@ -248,6 +252,8 @@ root_agent = Agent(
   ```bash
   pip install "google-adk[extensions]"
   ```
+- If you get a permission error, use: `pip install --break-system-packages "google-adk[extensions]"`
+- Make sure you're in your virtual environment (you should see `(venv)` in your terminal)
 
 **"RESOURCE_EXHAUSTED" or "You exceeded your current quota"**
 - You've hit the free tier limit on Google AI Studio
