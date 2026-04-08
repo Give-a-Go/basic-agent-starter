@@ -25,7 +25,8 @@ This is a **starter template** showing how to build a simple agent. The agent:
 
 ## Prerequisites
 
-### 1. Install Python
+<details>
+<summary><b>1. Install Python (click to expand)</b></summary>
 
 **macOS:**
 ```bash
@@ -46,12 +47,15 @@ Verify installation:
 ```bash
 python3 --version
 ```
+</details>
 
-### 2. Why Use a Virtual Environment?
+<details>
+<summary><b>2. Why Use a Virtual Environment? (click to expand)</b></summary>
 
 A **virtual environment** keeps your project isolated. Think of it like a separate room for each project - so packages you install for one project don't mess up other projects.
 
 Without a venv, you might have conflicts between different projects. With a venv, each project has its own clean setup.
+</details>
 
 ---
 
