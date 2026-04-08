@@ -99,7 +99,7 @@ Without a venv, you might have conflicts between different projects. With a venv
 
    **If using Tensorix (or both):**
    ```bash
-   pip install google-adk litellm
+   pip install "google-adk[extensions]"
    ```
 
 ---
@@ -244,8 +244,10 @@ root_agent = Agent(
 - Make sure you installed the packages: `pip install google-adk`
 
 **"Fail to load 'tensorix_math_tutor.agent' module. LiteLLM support requires..."**
-- You need to install litellm separately:
-- Run: `pip install litellm`
+- Install with extensions (note the quotes around the brackets):
+  ```bash
+  pip install "google-adk[extensions]"
+  ```
 
 **"RESOURCE_EXHAUSTED" or "You exceeded your current quota"**
 - You've hit the free tier limit on Google AI Studio
