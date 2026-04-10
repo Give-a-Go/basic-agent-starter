@@ -11,14 +11,12 @@ from typing import Optional
 
 def before_agent_callback(callback_context: CallbackContext) -> Optional[types.Content]:
     """Send greeting on first interaction."""
-    session = callback_context.session
-    if session:
-        events = session.events if hasattr(session, 'events') else []
-        if not events or len(events) == 0:
-            return types.Content(
-                parts=[types.Part(text="Hi! I'm your friendly math tutor. Ask me any math question and I'll help you understand the answer step by step!")],
-                role="model"
-            )
+    # Check if this is the first interaction (invocation_id == 1)
+    if callback_context.invocation_id == 1:
+        return types.Content(
+            parts=[types.Part(text="Hi! I'm your friendly math tutor. Ask me any math question and I'll help you understand the answer step by step!")],
+            role="model"
+        )
     return None
 
 llm = LiteLlm(
