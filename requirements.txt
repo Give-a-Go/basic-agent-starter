@@ -1,8 +1,6 @@
 # Requirements for Math Tutor Agent
+# Install ALL of these for full functionality (Tensorix + greeting):
+google-adk[extensions]
 
-# Install with extensions for Tensorix (includes greeting feature):
-# Run this command directly (not from requirements.txt):
-# pip install "google-adk[extensions]"
-
-# Or install base package:
-google-adk
+# OR for Google AI Studio only (no LiteLLM support):
+# google-adk

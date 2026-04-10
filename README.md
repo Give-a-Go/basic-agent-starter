@@ -91,22 +91,11 @@ Without a venv, you might have conflicts between different projects. With a venv
    You should see `(venv)` appear at the start of your terminal line.
 
 5. **Install dependencies:**
-
-   **Quick install:**
    ```bash
    pip3 install -r requirements.txt
    ```
 
-   **Note:** For the greeting feature with Tensorix, run this instead:
-   ```bash
-   pip3 install "google-adk[extensions]"
-   ```
-
-   > If you get a permission error, add `--break-system-packages`: `pip3 install --break-system-packages "google-adk[extensions]"`
-
-   > Make sure your virtual environment is activated (you should see `(venv)` in your terminal).
-
-   > **Note:** The greeting feature (agent says hi first) requires the `[extensions]` version. If you skip it, you can still use the agent but won't get the automatic greeting.
+   > If you get a permission error, add `--break-system-packages`
 
 ---
 
@@ -236,12 +225,8 @@ root_agent = Agent(
 - Make sure you installed the packages: `pip3 install google-adk`
 
 **"Fail to load 'tensorix_math_tutor.agent' module. LiteLLM support requires..."**
-- Install with extensions (note the quotes around the brackets):
-  ```bash
-  pip3 install "google-adk[extensions]"
-  ```
-- If you get a permission error, use: `pip3 install --break-system-packages "google-adk[extensions]"`
-- Make sure you're in your virtual environment (you should see `(venv)` in your terminal)
+- You need extensions installed. Make sure requirements.txt is correct:
+- Run: `pip3 install -r requirements.txt`
 
 **"cannot import name 'LiteLLM' from 'google.adk.models'"**
 - Your version of google-adk is older and doesn't support LiteLLM
