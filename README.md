@@ -94,12 +94,12 @@ Without a venv, you might have conflicts between different projects. With a venv
 
    **Quick install:**
    ```bash
-   pip33 install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 
    **Note:** For the greeting feature with Tensorix, run this instead:
    ```bash
-   pip33 install "google-adk[extensions]"
+   pip3 install "google-adk[extensions]"
    ```
 
    > If you get a permission error, add `--break-system-packages`: `pip3 install --break-system-packages "google-adk[extensions]"`
