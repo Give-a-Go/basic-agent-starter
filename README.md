@@ -128,6 +128,47 @@ Tensorix offers more free credits and works well for this project.
 
 > **Note:** Save your API key! You'll need to set it every time you open a new terminal. To make it permanent, add it to your shell profile (~/.zshrc or ~/.bashrc).
 
+<details>
+<summary><b>About Tensorix and Available Models (click to expand)</b></summary>
+
+### What is Tensorix?
+
+[Tensorix](https://tensorix.ai) is an AI API provider that offers:
+- **Free credits** - More generous than Google AI Studio
+- **OpenAI-compatible API** - Works with any OpenAI client
+- **Multiple model providers** - Including MiniMax, Kimi, and more
+
+### Available Free Models
+
+Tensorix offers various models. Some popular ones:
+
+| Model | Description |
+|-------|------------|
+| `minimax/minimax-m2` | Fast, good for simple tasks |
+| `minimax/minimax-m2.5` | Better quality, still fast |
+| `z-ai/glm-5` | Z-AI GLM model |
+| `moonshot/kimi-2` | Kimi model |
+
+### Using Different Models
+
+To change the model, edit `agents/tensorix_math_tutor/agent.py` and change:
+
+```python
+model="openai/minimax/minimax-m2"  # Change this to another model
+```
+
+Example:
+```python
+model="openai/minimax/minimax-m2.5"
+```
+
+### Learn More
+
+- [Tensorix Documentation](https://docs.tensorix.ai/)
+- [Tensorix Models](https://tensorix.ai/models)
+
+</details>
+
 ---
 
 ## Run the Agent (Recommended: Web Browser)
