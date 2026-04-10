@@ -127,11 +127,6 @@ Tensorix offers more free credits and works well for this project.
    export TENSORIX_API_KEY="your-key-here"
    ```
 
-4. **Run with Tensorix:**
-   ```bash
-   adk run agents/tensorix_math_tutor
-   ```
-
 ### Option B: Google AI Studio
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
@@ -142,38 +137,29 @@ Tensorix offers more free credits and works well for this project.
    export GOOGLE_API_KEY="your-key-here"
    ```
 
-5. **Run with Google AI Studio:**
-   ```bash
-   adk run agents/math_tutor
-   ```
-
 > **Note:** Save your API key! You'll need to set it every time you open a new terminal. To make it permanent, add it to your shell profile (~/.zshrc or ~/.bashrc).
 
 ---
 
-## Run the Agent
+## Run the Agent (Recommended: Web Browser)
 
-### Option 1: Web Browser (Recommended)
+### Option 1: Web Browser
 
-The easiest way to use your agent - opens in your browser with a nice chat interface.
+**Recommended** - Opens in your browser with a nice chat interface.
 
 ```bash
 adk web agents
 ```
 Then open http://127.0.0.1:8000 in your browser.
 
-### Option 2: Terminal (CLI) - Alternative
+### Option 2: Terminal (CLI)
 
 If you prefer the command line:
 
-**For Tensorix (More Free Credits):**
 ```bash
-adk run agents/tensorix_math_tutor
-```
-
-**For Google AI Studio:**
-```bash
-adk run agents/math_tutor
+adk run agents/tensorix_math_tutor  # For Tensorix
+# OR
+adk run agents/math_tutor           # For Google AI Studio
 ```
 
 Then type your math questions. Type `exit` to quit.
