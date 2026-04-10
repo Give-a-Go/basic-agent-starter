@@ -206,6 +206,72 @@ root_agent = Agent(
 
 ---
 
+## Customizing the Agent
+
+<details>
+<summary><b>How to Customize the Agent (click to expand)</b></summary>
+
+### Where to Make Changes
+
+The agent code lives in:
+- `agents/tensorix_math_tutor/agent.py` - For Tensorix version
+- `agents/math_tutor/agent.py` - For Google AI Studio version
+
+Edit either file to customize the agent.
+
+### Understanding the Code
+
+**Tensorix version:**
+```python
+from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
+
+llm = LiteLlm(
+    model="openai/minimax/minimax-m2",     # The AI model to use
+    api_key=os.environ.get("TENSORIX_API_KEY"),  # Your API key
+    base_url="https://api.tensorix.ai/v1"   # Tensorix API endpoint
+)
+
+root_agent = Agent(
+    name="math_tutor",       # Agent name
+    model=llm,           # The model (llm variable above)
+    instruction="..."    # Instructions for how the agent behaves
+)
+```
+
+**Key parts you can change:**
+- `model="openai/minimax/minimax-m2"` - Try other models like `minimax/minimax-m2.5`
+- `name="math_tutor"` - Rename your agent
+- `instruction="..."` - Change how the agent behaves
+
+### Changing the Instructions
+
+The `instruction` parameter tells the agent how to behave. For example:
+
+```python
+instruction="You are a helpful coding assistant. Write clean, simple code and explain it briefly."
+```
+
+### Changing the Model
+
+Try different models:
+- `model="openai/gpt-4o"` - OpenAI GPT-4 (requires OpenAI key)
+- `model="anthropic/claude-3-sonnet-20240229"` - Anthropic Claude (requires Anthropic key)
+
+### After Making Changes
+
+1. Save the file
+2. Restart the web server:
+   ```bash
+   # Stop the old server (Ctrl+C)
+   adk web agents
+   ```
+3. Refresh your browser
+
+</details>
+
+---
+
 ## Example Questions to Try
 
 - What is 2 + 2?
